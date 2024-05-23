@@ -4,18 +4,23 @@ module Counter(
 );
     reg [2:0] i;
 
-    always @(posedge Clk, posedge Load) begin
-        if (Load)
-            i <= 3'b000; // Reinicia o contador se Load estiver alto
-        else if (i != 3'b111)
-            i <= i + 1; // Incrementa o contador se Load estiver baixo e K não estiver no valor máximo
-    end
+	always @(posedge Clk, posedge Load) begin
+		if (Load) begin
+				i <= 3'b000; // Reinicia o contador se Load estiver alto
+				K = 0;
+			end
+		else if (i != 3'b111) begin
+				i = i + 1; // Incrementa o contador se Load estiver baixo e K não estiver no valor máximo
+				K = (i == 3'b111) ? 1 : 0;
+			end
+		else K = 1;
+	end
 
     
-    always @(*) begin
-        if (i == 3'b111) 
-            K = 1;
-        else
-            K = 0;
-    end
+//    always @(*) begin
+//        if (i == 3'b111) 
+//            K = 1;
+//        else
+//            K = 0;
+//    end
 endmodule

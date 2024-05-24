@@ -7,7 +7,7 @@ module Multiplicador_TB();
 	reg [3:0]Multiplicador;
 	wire Idle, Done; 
 	wire [7:0]Produto;
-	reg [3:0] i = 4'b0000; 
+	
 
 
 	//Multiplicador(Idle, Done, Produto, St, Clk, Multiplicador, Multiplicando);
@@ -21,55 +21,41 @@ module Multiplicador_TB();
 		.Produto(Produto)
 	);
 	
-initial begin
+	always #5 Clk = ~Clk;		
 
-   Clk = 0;
-	Multiplicando = 4'b0101;
-	Multiplicador = 4'b0000;
-	St = 1;
-	
-	#4 Clk = 1;
-	#4 Clk = 0;
+	initial begin
+		Clk = 0;
+		Multiplicando = 0;
+		Multiplicador = 0;
 		St = 0;
-	#4 Clk = 1; 
-	#4 Clk = 0; 
-	
-	for(i = 0; i < 9; i = i + 1)begin
-		#4 Clk = 1;
-		#4 Clk = 0;
-	end
-	
 
-	Clk = 0;
-	Multiplicando = 4'b0101;
-	Multiplicador = 4'b1010;
-	St = 1;
-	
-	#4 Clk = 1;
-	#4 Clk = 0;
+		#10;
+
+		Multiplicando = 4'b0011;
+		Multiplicador = 4'b0010;
+		St = 1;
+		#10;
 		St = 0;
-	#4 Clk = 1; 
-	#4 Clk = 0; 
-	
-	for(i = 0; i < 9; i = i + 1)begin
-		#4 Clk = 1;
-		#4 Clk = 0;
-	end
-	
-	Clk = 0;
-	Multiplicando = 4'b1111;
-	Multiplicador = 4'b1111;
-	St = 1;
-	
-	#4 Clk = 1;
-	#4 Clk = 0;
+
+		#90;
+
+		Multiplicando = 4'b0101;
+		Multiplicador = 4'b0011;
+		St = 1;
+		#10;
 		St = 0;
-	#4 Clk = 1; 
-	#4 Clk = 0; 
-	
-	for(i = 0; i < 9; i = i + 1)begin
-		#4 Clk = 1;
-		#4 Clk = 0;
+
+		#90;
+
+		Multiplicando = 4'b1111;
+		Multiplicador = 4'b1111;
+		St = 1;
+		#10;
+		St = 0;
+
+		#90;
+
+		$stop;
 	end
-end
+
 endmodule 

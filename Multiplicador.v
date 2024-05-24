@@ -1,11 +1,14 @@
-module Multiplicador(Idle, Done, Produto, St, Clk, Multiplicador, Multiplicando);
-	input [3:0] Multiplicando;
-	input [3:0] Multiplicador;
-	input St, Clk;
+module Multiplicador(
+	input [3:0] Multiplicando,
+	input [3:0] Multiplicador,
+	input St, Clk,
 	
-	output Idle, Done;
-	output [7:0] Produto;
+	output Idle, Done,
+	output [7:0] Produto
 	
+);
+	//module Multiplicador(Idle, Done, Produto, St, Clk, Multiplicador, Multiplicando);
+		
 	wire Load, Sh, Ad, K;
 	wire [4:0] Soma;
 	wire [8:0] out;

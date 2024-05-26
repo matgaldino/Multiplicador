@@ -1,7 +1,7 @@
 module ACC (
 	input Load, Sh, Ad, Clk, 
 	input [8:0] Entradas,
-	output reg [8:0] Saidas = 9'b000000000
+	output reg [8:0] Saidas
 );
 
 	always @(posedge Clk) begin

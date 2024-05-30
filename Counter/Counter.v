@@ -6,7 +6,7 @@ module Counter(
 
 	always @(posedge Clk, posedge Load) begin
 		if (Load) begin
-				i <= 3'b000; // Reinicia o contador se Load estiver alto
+				i = 3'b000; // Reinicia o contador se Load estiver alto
 				K = 0;
 			end
 		else if (i != 3'b111) begin
@@ -15,12 +15,4 @@ module Counter(
 			end
 		else K = 1;
 	end
-
-    
-//    always @(*) begin
-//        if (i == 3'b111) 
-//            K = 1;
-//        else
-//            K = 0;
-//    end
 endmodule

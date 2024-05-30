@@ -37,7 +37,7 @@ module Multiplicador_TB();
 		#10;
 		St = 0;
 
-		#90;
+		#150;
 
 		Multiplicando = 4'b0101;
 		Multiplicador = 4'b0011;
@@ -45,7 +45,7 @@ module Multiplicador_TB();
 		#10;
 		St = 0;
 
-		#90;
+		#150;
 
 		Multiplicando = 4'b1111;
 		Multiplicador = 4'b1111;
@@ -53,7 +53,7 @@ module Multiplicador_TB();
 		#10;
 		St = 0;
 
-		#90;
+		#150;
 
 		$stop;
 	end

@@ -5,8 +5,8 @@ module ACC (
 );
 
 	always @(posedge Clk) begin
-		if(Load) Saidas = {5'b00000, Entradas[3:0]};
-		else if(Sh) Saidas = Saidas >> 1;
-		else if(Ad) Saidas[8:4] = Entradas[8:4];
+		if(Load) Saidas <= {5'b00000, Entradas[3:0]};
+		else if(Sh) Saidas <= Saidas >> 1;
+		else if(Ad) Saidas[8:4] <= Entradas[8:4];
 	end
 endmodule
